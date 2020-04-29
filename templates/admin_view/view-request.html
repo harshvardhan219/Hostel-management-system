@@ -1,0 +1,32 @@
+
+      <div class="modal-header">
+        <strong style="font-size:20px;">From : {{field.owner | capfirst}}</strong><span style="color:green; font-size:10px;padding-left:5px; line-height:45px;">warden</span> <span></span>
+
+        <!-- <p style="color:rgb(255,128,33);font-size:10px;">  <i class="fa fa-bell fa-4x animated rotateIn mb-1"></i></p> -->
+        <a style="border:none;" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><i class="fa fa-close fa-1x animated rotateIn mb-1"></i></span>
+        </a>
+      </div>
+      <!--Body-->
+      <div class="modal-body">
+        <span style=""><strong> Subject : {{field.name}}</strong></span>
+        <br>
+        <span style="color:rgb(255,128,33);">Date <span>&nbsp</span> : {{field.issue_date}}</span>
+
+        <br>
+        <div  style="margin-top:20px; border:1px solid #eeeeee;padding:10px;" class="">
+        <span >{{field.description }}</span>
+        </div>
+
+
+
+
+      </div>
+      <!--Footer-->
+      <div class="modal-footer">
+          <button data-dismiss="modal" style="border-radius:10px; background:rgb(255,128,33); border:none;"; type="submit" class="delete-btn btn btn-danger waves-effect">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal: modalCart -->

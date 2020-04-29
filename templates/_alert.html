@@ -1,0 +1,12 @@
+{% load static %}
+  {% if messages %}
+      {% for message in messages %}
+          <div style="margin-bottom:40px; border-radius:10px;" class="alert {{ message.tags }} m-4" id="msg" role="alert">
+              {{ message }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+
+          </div>
+      {% endfor %}
+  {% endif %}

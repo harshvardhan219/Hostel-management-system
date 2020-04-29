@@ -1,0 +1,36 @@
+{% load widget_tweaks %}
+
+<div style="background:#81c784;"  class="modal-header d-flex justify-content-center">
+  <h3 style="color:#fff"; class="modal-title">Staff Details</h3>
+  </div>
+
+<div class="modal-read modal-body">
+
+  <div class="modal-body-field" style="text-align:center;" class="">
+    Name :
+    <br>
+  <strong  style="font-size:20px;"> {{field.firstName}} {{field.lastName}}</strong>
+  </div>
+  <div class="modal-body-field" style="text-align:center;" class="">
+    Hostel Name :
+    <br>
+     <strong  style="font-size:18px;"> {{field.hostel_name}}</strong>
+  </div>
+  <div class="modal-body-field" style="text-align:center;" class="">
+    Phone :
+    <br>
+    <strong  style="font-size:18px;"> {{field.phone_number}}</strong>
+
+  </div>
+  <div class="modal-body-field" style="text-align:center;" class="">
+    Email :
+    <br>
+    <strong  style="font-size:18px;"> {{field.email}}</strong>
+  </div>
+
+
+</div>
+
+<div class="modal-footer">
+    <button style="border-radius:10px; background:#81c784; border:none; color:#fff;"; type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>

@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Admin | {{user.admin.firstName}} {{user.admin.lastName}} {%endblock%}
+{% block style %}
+    ion-icon {
+      color:#fd9426;
+      font-size:33px;
+      float:right;
+      margin:0 3px;
+      padding:3px;
+      line-height:20px;
+      display:block;
+      border: 0px solid #fd9426;
+      border-radius:10px;
+      cursor:pointer;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+    }
+    ion-icon:hover{
+      transition:0.1s;
+      background:#fd9426;
+      color:#FFF;
+      border: 1px solid #fd9426;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+    .menu {
+      top: -71px;
+      position: relative;
+    }
+    input,select, optgroup {
+      margin: 10px;
+      width: 100%;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      outline: none;
+      border: 1px solid #999999;
+      color:rgb(255,128,33);
+      border-radius: 10px;
+      height: 52px !important;
+      font-size: 18px;
+      background: #fff !important;
+      color: #000000 !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+  }
+    input:hover,select:hover, optgroup:hover, textarea:hover {
+       transition:0.4s;
+       border: 1px solid rgb(255,128,33);
+  }
+    textarea {
+      margin: 10px;
+      width: 100%;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      outline: none;
+      border: 1px solid #999999;
+      color:rgb(255,128,33);
+      border-radius: 10px;
+      height: 152px !important;
+      font-size: 18px;
+      background: #fff !important;
+      color: #000000 !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+  }
+    button {
+      outline:none;
+      border:none;
+      font-size:20px;
+      padding:2px 10px;
+      background:rgb(255,128,33);
+      color:#ffffff;
+      cursor:pointer;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+  }
+    .ripple {
+      background-position: center;
+      transition: background 0.8s;
+    }
+    .ripple:hover {
+      background: #fc6e05 radial-gradient(circle, transparent 1%, #db8646  1%) er/15000%;
+    }
+    .ripple:active {
+      background-color: rgb(255,128,33);
+      background-size: 100%;
+      transition: background 0s;
+    }
+    .main h4 {
+      color:rgb(255,128,33);
+      background: #ffffff;
+      border-radius:10px;
+      padding:0px 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+     h4 a{
+      display:inline;
+      cursor:pointer;
+      border:1px solid #fd9426;
+      font-size:14px;
+      padding:8px 16px;
+      border-radius:10px;
+      color:rgb(255,128,33);
+
+    }
+    h4 a:hover{
+    display:inline;
+    background:rgb(255,128,33);
+    color:#fff;
+    }
+
+
+{% endblock %}
+{% block nav-link %}
+    <li ><a style="font-size:18px;" href="{% url 'admin_view:admin-home' %}"> Home</a></li>
+      <hr>
+    <li class="colorlib-active"  ><a style="font-size:18px;" href="{% url 'admin_view:notice-admin' %}">All Notice</a></li>
+      <hr>
+    <li ><a style="font-size:18px;" href="{% url 'admin_view:request-list' %}">  All Request</a></li>
+      <hr>
+    <li ><a style="font-size:18px;" href="{% url 'warden_signup' %}">Add Warden</a><li>
+      <hr>
+    <li><a style="font-size:18px;" href="{% url 'warden_view:search-warden' %}"> Search Warden</a></li>
+      <hr>
+      <br>
+    <li ><a style="color:#fd9426;" id='logout' href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> logout</a></li>
+{% endblock %}
+
+{% block profile%}
+
+<a class=" " href="{% url 'admin_view:admin-profile'  %}">
+  <ion-icon name="contact"></ion-icon>
+</a>    <a class="admin-notifications " data-id="{% url 'admin_view:admin-notification'  %}">
+      <ion-icon name="notifications"></ion-icon>
+    </a>
+    <a class="admin-message " data-id="{% url 'admin_view:admin-message'  %}">
+      <ion-icon name="navigate"></ion-icon>
+    </a>
+{% endblock %}
+
+{% block body %}
+
+<div class="main">
+    {% include "_modal-1.html" %}
+
+   <h4 style="">Sent Notices</h4>
+   <div class="">
+     {% if note %}
+       {% for data in note %}
+
+ <a style="cursor:pointer;" data-id="{% url 'admin_view:admin_read_notice' data.pk %}" type="button"  class=" mt-3 list-group-item list-group-item-action send-notice">
+<strong>{{data.users | capfirst}}</strong>
+ <span style="color:green; font-size:10px;padding-left:5px; line-height:0px;">warden</span> <span></span><span></span>
+{{data.name | truncatechars:30}} <span></span>
+<span style="color:rgb(255,128,33);">{{data.issue_date}}</span>
+ </a>
+ {% endfor %}
+{% else %}
+<tr>
+  <a style="cursor:pointer;"  type="button"  class=" mt-3 list-group-item list-group-item-action send-notice">
+     <h5 style="text-align:center;">No Notice</h5>
+  </a>
+</tr>
+
+{% endif %}
+
+   </div>
+</div>
+{% endblock %}
+
+{% block extrascripts %}
+  <script type="text/javascript">
+    $(function () {
+      $(".send-notice").each(function () {
+        $(this).modalForm({formURL: $(this).data('id')});
+      });
+
+      $(".admin-message").each(function () {
+        $(this).modalForm({formURL: $(this).data('id')});
+      });
+
+      $(".admin-notifications").each(function () {
+        $(this).modalForm({formURL: $(this).data('id')});
+      });
+
+      $(".admin-profile").each(function () {
+        $(this).modalForm({formURL: $(this).data('id')});
+      });
+
+      // Hide message
+      // $(".alert").fadeTo(2000, 700).slideUp(700, function(){
+      //   $(".alert").slideUp(2000);
+      // });
+
+    });
+  </script>
+{% endblock extrascripts %}
+{% block heading %}
+<h4 class="">
+  <a style=" " class="send-notice " href="{% url 'admin_view:create-notice'%}"> Create Notice</a>
+</h4>
+{% endblock %}

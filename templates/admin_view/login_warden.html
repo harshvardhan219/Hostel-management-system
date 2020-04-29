@@ -1,0 +1,113 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V12</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!--===============================================================================================-->
+<style media="screen">
+..form-control {
+	display: block;
+	width: 100%;
+	padding: .5rem .75rem;
+	font-size: 1rem;
+	line-height: 1.25;
+	outline: none;
+	color: #495057;
+	background-color: #fff;
+	background-image: none;
+	background-clip: padding-box;
+	border: 1px solid #000;
+	border-radius: 1.25rem;
+	font-size:20px;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	height: 50px;
+}
+.form-control:hover{
+	border: 2px solid rgb(255,128,33);
+}
+</style>
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url({% static 'images/annie-spratt-_dAnK9GJvdY-unsplash.jpg' %});">
+			<div style=" bordewr:1px solid black;" class="wrap-login100 p-t-80 p-b-0">
+	<form class="login100-form validate-form">
+		{% csrf_token %}
+					<div class="login100-form-avatar">
+						<img  src="{% static 'images/mini-logo.png' %}" alt="AVATAR">
+					</div>
+
+					<span class="login100-form-title p-t-20 p-b-20">
+                     Vkarma Edutech pvt Ltd
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-0" data-validate = "Username is required">
+						{{ form.username| as_crispy_field }}
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<!--i class="fa fa-user"></i-->
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-1" data-validate = "Password is required">
+						{{ form.password | as_crispy_field }}
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<!--i class="fa fa-lock"></i-->
+						</span>
+					</div>
+
+					<div class="container-login100-form-btn p-t-10">
+						<button class="login100-form-btn">
+							Login
+						</button>
+					</div>
+
+					<div class="text-center w-full p-t-25 p-b-230">
+						<a href="#" class="txt1">
+							Forgot Username / Password?
+						</a>
+					</div>
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/bootstrap/js/popper.js'}"></script>
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{%  static 'vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{static 'js/main.js'}"></script>
+
+</body>
+</html>

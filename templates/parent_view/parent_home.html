@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Parent | Dashboard {%endblock%}
+{% block heading %} Welcome  {% endblock %}
+{% block style %}
+      ion-icon {
+          color:#fd9426;
+          font-size:30px;
+          float:right;
+          margin:0 3px;
+          padding:3px;
+          line-height:20px;
+          display:block;
+          border: 1px solid #fd9426;
+          border-radius:10px;
+          cursor:pointer;
+          transition:0.1s;
+        }
+        ion-icon:hover{
+          transition:0.1s;
+          background:#fd9426;
+          color:#FFF;
+          border: 1px solid #fd9426;
+        }
+        .menu {
+          top: -71px;
+          position: relative;
+        }
+        .box
+        {
+          margin-bottom:20px ;
+          border-radius:10px ;
+          box-shadow:0 0 0 0.4;
+          opacity:0.8;
+          width: 100%;
+          height: 330px;
+          border: 2px solid #ced4da;
+        }
+        .box:hover{
+
+          border: 1px solid rgb(255,128,33);
+          background:.rgb(255,128,33);
+
+        }
+
+
+
+        .span2
+        {
+          font-size: 16px;
+          color: #999999;
+          font-weight:bolder;
+          text-align: center;
+          margin-bottom:0px;
+
+        }
+        #span3{
+          color:black;
+        }
+        .main h4 {
+          color:#000;
+          background: #ced4da;
+          border-radius:10px;
+          padding:0px 10px;
+        }
+        .box img {
+          width:100%;
+          height:220px;
+          padding:10px;
+          border-radius:50%;
+
+        }
+        .box .a1 ion-icon {
+          color:#fc3d39
+
+        }
+        .box .a1 ion-icon:hover {
+          background:#fc3d39;
+          color:#fff;
+          border:1px solid #fc3d39;
+        }
+        .box .a3 ion-icon {
+          color:#53d769;
+        }
+        .box .a3 ion-icon:hover {
+          background:#53d769;
+          color:#fff;
+          border:1px solid #53d769;
+        }
+        .btn.btn-primary {
+    background: #f05d23;
+    border: 1px solid #f05d23;
+    color: #fff;
+    position: relative;
+    left: 40%;
+    margin-top: 10%;
+    /* top: 120%; */
+}
+
+{% endblock %}
+ {% block nav-link %}
+          <li class="colorlib-active" ><a style="font-size:18px;" href="{% url 'admin_view:admin-home' %}"> Home</a></li>
+          <li ><a style="font-size:18px;" href="{% url 'warden_view:signupWarden' %}">Child profile</a><li>
+          <li ><a style="font-size:18px;" href="{% url 'admin_view:notice-admin' %}"> Child Attendance</a></li>
+          <li><a style="font-size:18px;" href="{% url 'warden_view:search-warden' %}"> Send Request</a></li>
+          <br>
+          <hr>
+          <li ><a style="color:#fd9426;" id='logout' href="/logout"><i class="fa fa-sign-out"></i> logout</a></li>
+ {% endblock %}
+
+{% block body %}
+   {% include "_modal.html" %}
+<div class="main">
+   <h4 style="margin-top:20px">Feed</h4>
+   <div class="">
+       <h2 style="text-align:center;">No Data</h2>
+
+   </div>
+</div>
+{% endblock %}

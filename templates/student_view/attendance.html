@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Student | {{user.student.firstName}} {{user.student.lastName}}
+{% endblock %}
+ {% block heading %}<h3>Welcome</h3>  {% endblock %}
+{{% block style %}
+      ion-icon {
+          color:#fd9426;
+          font-size:33px;
+          float:right;
+          margin:0 3px;
+          padding:3px;
+          line-height:20px;
+          display:block;
+          border: 0px solid #fd9426;
+          border-radius:10px;
+          cursor:pointer;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+          transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+        }
+        ion-icon:hover{
+          transition:0.1s;
+          background:#fd9426;
+          color:#FFF;
+          border: 1px solid #fd9426;
+          box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+        .menu {
+          top: -71px;
+          position: relative;
+        }
+        .box
+        {
+          margin-bottom:20px ;
+          border-radius:10px ;
+          opacity:0.8;
+          width: 100%;
+          height: 330px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+          transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        }
+        .box:hover{
+          background:.rgb(255,128,33);
+          box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+        }
+        .modal-box {
+          background:red;
+        }
+
+        .box1
+        {
+          margin:30px ;
+          border-radius:10px ;
+          opacity:0.8;
+          width: 100%;
+          height: 330px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+          transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        }
+        .box1:hover{
+          background:.rgb(255,128,33);
+          box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+        }
+
+
+
+        .span2
+        {
+          font-size: 16px;
+          color: #999999;
+          font-weight:bolder;
+          text-align: center;
+          margin-bottom:0px;
+
+        }
+        #span3{
+          color:black;
+        }
+        .main h4 {
+          color:rgb(255,128,33);
+          background: #ffffff;
+          border-radius:10px;
+          padding:0px 10px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
+        .box img {
+          width:100%;
+          height:220px;
+          padding:10px;
+          border-radius:50%;
+
+        }
+        .box .a1 ion-icon {
+          color:#fc3d39
+
+        }
+        .box .a1 ion-icon:hover {
+          background:#fc3d39;
+          color:#fff;
+          border:1px solid #fc3d39;
+        }
+        .box .a3 ion-icon {
+          color:#53d769;
+        }
+        .box .a3 ion-icon:hover {
+          background:#53d769;
+          color:#fff;
+          border:1px solid #53d769;
+        }
+        .btn.btn-primary {
+    background: #f05d23;
+    border: 1px solid #f05d23;
+    color: #fff;
+    position: relative;
+    left: 40%;
+    margin-top: 10%;
+    /* top: 120%; */
+}
+.box1 p {
+  text-align:center;
+  font-size:18px;
+  color:#999999;
+   margin-bottom:-1rem;
+
+}
+
+
+{% endblock %}
+{% block nav-link %}
+          <li ><a style="font-size:18px;" href="{% url 'student_view:student-home' %}"> Home</a></li>
+          <hr>
+          <!-- <li ><a style="font-size:18px;" href="{% url 'student_view:notice-student' %}">All Notice</a></li>
+            <hr> -->
+            <li ><a style="font-size:18px;" href="{% url 'student_view:notice-student' %}">All Messages</a></li>
+              <hr>
+
+            <li ><a style="font-size:18px;" href="{% url 'student_view:request-student' %}"> Send Request</a></li>
+            <hr>
+            <li class="colorlib-active"><a style="font-size:18px;" href="{% url 'student_view:attendance' %}">My Attendance</a><li>
+          <hr>
+          <!-- <li><a style="font-size:18px;" href=""> Complaint</a></li>
+
+          <hr> -->
+          <li ><a style="color:#fd9426;" id='logout' href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> logout</a></li>
+ {% endblock %}
+
+
+{% block body %}
+ <h3 class="text-center">hardware not implimented yet</h3>
+
+{% endblock %}
+
+{% block profile%}
+<a class="" href="{% url 'student_view:student-profile'  %}">
+  <ion-icon name="contact"></ion-icon>
+</a>
+<a class="student-notifications " data-id="{% url 'student_view:student-notification'  %}">
+  <ion-icon name="notifications"></ion-icon>
+</a>
+<a class="student-message " data-id="{% url 'student_view:student-message'  %}">
+  <ion-icon name="mail"></ion-icon>
+</a>
+{% endblock %}
+
+{% block extrascripts %}
+  <script type="text/javascript">
+    $(function () {
+      $(".student-message").each(function () {
+        $(this).modalForm({formURL: $(this).data('id')});
+      });
+
+      $(".student-notifications").each(function () {
+        $(this).modalForm({formURL: $(this).data('id')});
+      });
+
+      $(".student-profile").each(function () {
+        $(this).modalForm({formURL: $(this).data('id')});
+      });
+      $(".send-notice").each(function () {
+        $(this).modalForm({formURL: $(this).data('id')});
+      });
+
+      // Hide message
+      $(".alert").fadeTo(2000, 700).slideUp(700, function(){
+        $(".alert").slideUp(2000);
+      });
+
+    });
+  </script>
+{% endblock extrascripts %}

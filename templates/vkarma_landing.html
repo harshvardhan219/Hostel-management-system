@@ -1,0 +1,151 @@
+
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Vkarma</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed&display=swap" rel="stylesheet">
+<style media="screen">
+  .login100-form-title {
+		font-family: 'Roboto', sans-serif;
+		font-family: 'Roboto Condensed', sans-serif;
+		word-spacing:2px;
+		letter-spacing:1px;
+     font-size: 26px;
+     color: rgb(255,128,33);
+     line-height: 1.2;
+     text-align: center;
+     width: 100%;
+     display: block;
+ }
+ .txt1 {
+	 font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Condensed', sans-serif;
+   font-size: 20px;
+   color: rgb(255,128,33);
+   line-height: 1.4;
+}
+.login100-form-btn {
+	font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Condensed', sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    background: rgb(255,128,33);
+    color: #fff;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    position: relative;
+    z-index: 1;
+}
+  button, input, optgroup, select, textarea {
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    height: 40px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    border:1px solid rgb(255,128,33);
+}
+.container-login100::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+     background: #999999;
+    background: -webkit-linear-gradient(bottom, #999999, #FFFF);
+    background: -o-linear-gradient(bottom, #005bea, #00c6fb);
+    background: -moz-linear-gradient(bottom, #005bea, #00c6fb);
+    background: linear-gradient(bottom, #005bea, #00c6fb);*/
+    opacity: 0.9;
+}
+label {
+    display: inline-block;
+    display: none;
+    margin-bottom: .5rem;
+}
+</style>
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url({% static 'images/annie-spratt-_dAnK9GJvdY-unsplash.jpg' %});">
+			<div style=" bordewr:1px solid black;" class="wrap-login100 p-t-80 p-b-0">
+	<form class="login100-form validate-form">
+		{% csrf_token %}
+					<div class="login100-form-avatar">
+						<img  src="{% static 'images/mini-logo.png' %}" alt="AVATAR">
+					</div>
+
+					<span class="login100-form-title p-t-20 p-b-20">
+                    <strong>Vkarma Edutech Pvt Ltd</strong>
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-0" data-validate = "Username is required">
+
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-1" data-validate = "Password is required">
+
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<!--i class="fa fa-lock"></i-->
+						</span>
+					</div>
+
+					<div class="container-login100-form-btn p-t-10">
+						<a href="{% url 'login' %}" class="login100-form-btn">
+							GET STARTED
+						</a>
+					</div>
+
+					<div class="text-center w-full p-t-25 p-b-230">
+					</div>
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+  <script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
+  <script src="{% static 'assets/js/popper.min.js' %}"></script>
+  <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,294 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Student | {{user.student.firstName}} {{user.student.lastName}} {%endblock%}
+
+{% block heading %} <h4>Welcome</h4>  {% endblock %}
+{% block style %}
+    a ion-icon {
+          color:#fd9426;
+          font-size:33px;
+          float:right;
+          margin:0 3px;
+          padding:3px;
+          line-height:20px;
+          display:block;
+          border: 0px solid #fd9426;
+          border-radius:10px;
+          cursor:pointer;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+          transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+        }
+    a  ion-icon:hover{
+          transition:0.1s;
+          background:#fd9426;
+          color:#FFF;
+          border: 1px solid #fd9426;
+          box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+    .menu {
+          top: -71px;
+          position: relative;
+        }
+    .box
+        {
+          margin-bottom:20px ;
+          border-radius:10px ;
+          opacity:0.8;
+          width: 100%;
+          height: 330px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+          transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        }
+    .box:hover{
+          background:.rgb(255,128,33);
+          box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+        }
+    .modal-box {
+          background:red;
+        }
+
+    .box1
+        {
+          margin:30px ;
+          border-radius:10px ;
+          opacity:0.8;
+          width: 100%;
+          height: 330px;
+          background:#ffff;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+          transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        }
+    .box1:hover{
+          background:.rgb(255,128,33);
+          box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+        }
+
+
+
+    .span2
+        {
+          font-size: 16px;
+          color: #999999;
+          font-weight:bolder;
+          text-align: center;
+          margin-bottom:0px;
+
+        }
+    #span3{
+          color:black;
+        }
+    .main h4 {
+          color:rgb(255,128,33);
+          background: #ffffff;
+          border-radius:10px;
+          padding:0px 10px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
+    .box img {
+          display:flex;
+          justify-content:center;
+          flex-wrap:no-wrap;
+          height:220px;
+          padding:10px;
+          border-radius:50%;
+
+        }
+    .box .a1 ion-icon {
+          color:#fc3d39
+
+        }
+    .box .a1 ion-icon:hover {
+          background:#fc3d39;
+          color:#fff;
+          border:1px solid #fc3d39;
+        }
+        .box .a3 ion-icon {
+          color:#53d769;
+        }
+    .box .a3 ion-icon:hover {
+          background:#53d769;
+          color:#fff;
+          border:1px solid #53d769;
+        }
+    .btn.btn-primary {
+          background: #f05d23;
+          border: 1px solid #f05d23;
+          color: #fff;
+          margin-top: 10%;
+
+        }
+    .box1 p {
+        text-align:center;
+        font-size:18px;
+        color:#999999;
+        margin-bottom:-1rem;
+
+      }
+
+    p ion-icon {
+        color:red;
+      }
+    .modal-read {
+      margin:30px ;
+      border-radius:10px ;
+      opacity:0.8;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+      cursor:pointer;
+
+    }
+    .modal-read:hover{
+      background:.rgb(255,128,33);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+    }
+     .flex{
+       display:flex;
+       margin:15px;
+       justify-content:center;
+
+     }
+     .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content:center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+section{
+  background:url("/static/images/bg_1.jpg");
+  background-size:cover;
+  background-repeat:no-repeat;
+  }
+
+             .row{
+               display:flex;
+               justify-content:center;
+             }
+
+
+{% endblock %}
+{% block nav-link %}
+          <li  class="colorlib-active" ><a style="font-size:18px;" href="{% url 'student_view:student-home' %}"> Home</a></li>
+          <hr>
+          <!-- <li ><a style="font-size:18px;" href="{% url 'student_view:notice-student' %}">All Notice</a></li>
+            <hr> -->
+            <li ><a style="font-size:18px;" href="{% url 'student_view:notice-student' %}">All Messages</a></li>
+              <hr>
+
+            <li><a style="font-size:18px;" href="{% url 'student_view:request-student' %}"> Send Request</a></li>
+            <hr>
+            <li><a style="font-size:18px;" href="{% url 'student_view:attendance' %}">My Attendance</a><li>
+          <hr>
+          <!-- <li><a style="font-size:18px;" href=""> Complaint</a></li>
+
+          <hr> -->
+          <li ><a style="color:#fd9426;" id='logout' href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> logout</a></li>
+ {% endblock %}
+
+{% block body %}
+   {% include "_modal-1.html" %}
+   <div class="main">
+
+      <h4 style="margin-top:">Dashboard</h4>
+        <div class="container-fluid  ">
+          <div class="row">
+               <div id='allwarden' style="height:100px;cursor:pointer;" class="box1 col-md-3">
+                 <p >Fee Status</p>
+
+                 <p style="margin-top:1rem;font-size:20px;color:rgb(255,128,33);" >paid</p>
+                 </div>
+                 <div  style="height:100px; cursor:pointer;" class="box1 col-md-3">
+                   <p>Mess Timing </p>
+                   {% if data %}
+                   <p style="font-size:20px;margin-top:1rem;color:rgb(255,128,33);" >8:30 pm</p>
+                   {% else %}
+                   <p style="font-size:20px;margin-top:1rem;" > - - -</p>
+                   {% endif %}
+                   </div>
+                   <div style="height:100px;cursor:pointer;" class="box1 col-md-3">
+                     <p >Attendance</p>
+                     {% if data %}
+                     <p style="font-size:20px; margin-top:1rem;color:rgb(255,128,33);">80%</p>
+                     {% else %}
+                     <p style="font-size:20px;margin-top:1rem;" > - - -</p>
+                     {% endif %}
+
+                     </div>
+
+          </div>
+     </div>
+   </div>
+<div class="main">
+                                   <h4>Notice Board</h4>
+  <div class="container">
+    <div class="row">
+     {% if note %}
+     {% include "_modal-1.html" %}
+
+        {% for data in note %}
+            <a style="cursor:pointer;" data-id="{% url 'warden_view:warden_read_notice' data.pk %}"  type="button"  class=" mt-3 list-group-item list-group-item-action send-notice">
+            <strong>{{data.owner | capfirst}}</strong><span style="color:green; font-size:10px;padding:10px; line-height:10px;">staff</span>
+                  <span></span>
+        {{data.name | truncatechars:30}} <span></span>
+        <span style="color:rgb(255,128,33);">{{data.issue_date}}</span>
+        <br>
+        <hr>
+        <span style="color:;">{{data.description| truncatechars:100 }}</span>
+        </a>
+
+        {% endfor %}
+        {% else %}
+              <a style="border-radius:10px;" type="submit" class="btn btn-primary" href="">
+                  Currently There is No Notice
+              </a>
+      {% endif %}
+
+    </div>
+{% endblock %}
+{% block profile%}
+
+<a class=" " href="{% url 'student_view:student-profile'  %}">
+    <ion-icon name="contact"></ion-icon>
+  </a>
+
+<a class="student-notifications " data-id="{% url 'student_view:student-notification'  %}">
+  <ion-icon name="notifications"></ion-icon>
+</a>
+<a class="student-message " data-id="{% url 'student_view:student-message'  %}">
+  <ion-icon name="mail"></ion-icon>
+</a>
+{% endblock %}
+
+{% block extrascripts %}
+  <script type="text/javascript">
+    $(function () {
+      $(".student-message").each(function () {
+        $(this).modalForm({formURL: $(this).data('id')});
+      });
+
+      $(".student-notifications").each(function () {
+        $(this).modalForm({formURL: $(this).data('id')});
+      });
+
+      $(".student-profile").each(function () {
+        $(this).modalForm({formURL: $(this).data('id')});
+      });
+
+      $(".send-notice").each(function () {
+        $(this).modalForm({formURL: $(this).data('id')});
+      });
+      // Hide message
+      $(".alert").fadeTo(2000, 700).slideUp(700, function(){
+        $(".alert").slideUp(2000);
+      });
+
+    });
+  </script>
+{% endblock extrascripts %}

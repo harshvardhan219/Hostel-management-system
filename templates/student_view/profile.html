@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  Student |  {{user.student.firstName}} {{user.student.lastName}}
+{%endblock%}
+{% block heading %} <h3>Profile!</h3> {% endblock %}
+{% block style %}
+  section{
+    background:url("/static/images/bg_1.jpg");
+    background-size:cover;
+    background-repeat:no-repeat;
+  }
+    .menu {
+          top: -71px;
+          position: relative;
+        }
+    ion-icon {
+          color:#fd9426;
+          font-size:33px;
+          float:right;
+          margin:0 3px;
+          padding:3px;
+          line-height:20px;
+          display:block;
+          border: 0px solid #fd9426;
+          border-radius:10px;
+          cursor:pointer;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+          transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+    }
+    ion-icon:hover{
+        transition:0.1s;
+        background:#fd9426;
+        color:#FFF;
+        border: 1px solid #fd9426;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+
+{% endblock %}
+
+{% block nav-link %}
+          <li ><a style="font-size:18px;" href="{% url 'student_view:student-home' %}"> Home</a></li>
+          <hr>
+          <!-- <li ><a style="font-size:18px;" href="{% url 'student_view:notice-student' %}">All Notice</a></li>
+            <hr> -->
+            <li ><a style="font-size:18px;" href="{% url 'student_view:notice-student' %}">All Messages</a></li>
+              <hr>
+
+            <li ><a style="font-size:18px;" href="{% url 'student_view:request-student' %}"> Send Request</a></li>
+            <hr>
+            <li><a style="font-size:18px;" href="{% url 'student_view:attendance' %}">My Attendance</a><li>
+          <hr>
+          <!-- <li><a style="font-size:18px;" href=""> Complaint</a></li>
+
+          <hr> -->
+          <li ><a style="color:#fd9426;" id='logout' href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> logout</a></li>
+ {% endblock %}
+
+ {% block body %}
+ <div class="main">
+     <img style="border-radius:10px;" src="{{user.student.profile_image.url}}" class=" mx-auto d-block img-responsive" width="220px" height="200px">
+       <h4 style="text-align:center;margin-top:10px; font-size:23px;"><strong>{{user.student.firstName}} {{user.student.lastName}}</strong><span style="color:green; font-size:14px;padding-left:10px; line-height:20px;">student</span>
+       </h4>
+   <div class="">
+ <button type="button" class="list-group-item list-group-item-action">User Id : <strong>{{user.username}}</strong></button>
+ <button type="button" class="list-group-item list-group-item-action">Email : <strong>{{user.student.email}}</strong></button>
+ <button type="button" class="list-group-item list-group-item-action">Hostel : <strong>{{user.student.hostel_name}}</strong></button>
+
+ <button type="button" class="list-group-item list-group-item-action">Phone : <strong>{{user.student.phone_number}}</strong></button>
+ <button type="button" class="list-group-item list-group-item-action">Last Login : <strong>{{user.last_login}}</strong></button>
+
+ <button type="button" class="list-group-item list-group-item-action" disabled>Joined Date : <strong>{{user.last_login}}</strong></button>
+</div>
+ {% endblock %}
+  {% block profile%}
+      <a href="{% url 'student_view:profile-update' %}" class="">
+      <ion-icon name="cog"></ion-icon>
+    </a>
+    <a href="{% url 'change-password' %}" class="">
+      <ion-icon name="finger-print"></ion-icon>
+    </a>
+
+{% endblock %}

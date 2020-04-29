@@ -1,0 +1,6 @@
+Django == 3.0.2
+Django-crispy-forms == 1.8.1
+Django-bootstrap-modal-forms == 1.5.0
+Django-widget-tweaks== 1.4.5
+Pillow == 7.0.0
+Django-cleanup 

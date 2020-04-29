@@ -1,0 +1,325 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Staff | {{user.hostelstaff.firstName}} {{user.hostelstaff.lastName}} {%endblock%}
+{% block style %}
+.card {
+  margin-bottom:20px ;
+  border-radius:10px ;
+  opacity:0.8;
+  padding:100px
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+}
+.card:hover{
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+ion-icon {
+    color:#fd9426;
+    font-size:33px;
+    float:right;
+    margin:0 3px;
+    padding:3px;
+    line-height:20px;
+    display:block;
+    border: 0px solid #fd9426;
+    border-radius:10px;
+    cursor:pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+  }
+  ion-icon:hover{
+    transition:0.1s;
+    background:#fd9426;
+    color:#FFF;
+    border: 1px solid #fd9426;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+ .menu {
+  top: -71px;
+  position: relative;
+ }
+ .box{
+   margin-bottom:20px ;
+   margin-left: ;
+   border-radius:10px ;
+   box-shadow:0 0 0 0.4;
+   opacity:0.8;
+   width: 100%;
+   cursor:pointer;
+   height: 310px;
+   border: 1px solid #ced4da;
+ }
+ .box:hover{
+   border: 1px solid rgb(255,128,33);
+   background:.rgb(255,128,33);
+   transition:0.4s;
+  }
+  .span2 {
+    font-size: 16px;
+    color: #999999;
+    font-weight:bolder;
+    text-align: center;
+    padding-left: 15px;
+  }
+  .main h4 {
+   color:#000;
+   background: #ced4da;
+   border-radius:10px;
+   padding:0px 10px;
+ }
+ .box img {
+  width:200px;
+  height:200px;
+  padding:10px;
+  border-radius:50%;
+ }
+ .box a {
+   background:rgb(255,128,33);
+   color:#ffffff;
+   font-size:20px;
+   padding:5px 20px;
+   border-radius:20px;
+   margin-left:20px;
+   letter-spacing:1px;
+ }
+ .form-control {
+    height: 150px !important;
+    background: #fff !important;
+    color: #000000 !important;
+    font-size: 18px;
+    border-radius: 10px;
+    -webkit-box-shadow: none !important;
+    box-shadow:none;
+  }
+  input,select, optgroup {
+      margin: 10px;
+      width: 100%;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      outline: none;
+      border: 1px solid #999999;
+      color:rgb(255,128,33);
+      border-radius: 10px;
+      height: 52px !important;
+      font-size: 18px;
+      background: #fff !important;
+      color: #000000 !important;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+          transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+  }
+  input:hover,select:hover, optgroup:hover
+  , textarea:hover {
+       transition:0.4s;
+       border: 1px solid rgb(255,128,33);
+  }
+  textarea {
+    margin: 10px;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    outline: none;
+    border: 1px solid #999999;
+    color:rgb(255,128,33);
+    border-radius: 10px;
+    height: 152px !important;
+    font-size: 18px;
+    background: #fff !important;
+    color: #000000 !important;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+  }
+  .main h4 {
+    color:rgb(255,128,33);
+    background: #ffffff;
+    border-radius:10px;
+    padding:0px 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  }
+  button {
+    outline:none;
+    border:none;
+    font-size:20px;
+    padding:2px 10px;
+    background:rgb(255,128,33);
+    color:#ffffff;
+
+    cursor:pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+  }
+            .ripple {
+              background-position: center;
+              transition: background 0.8s;
+            }
+            .ripple:hover {
+              background: #fc6e05 radial-gradient(circle, transparent 1%, #db8646  1%) center/15000%;
+            }
+            .ripple:active {
+              background-color: rgb(255,128,33);
+              background-size: 100%;
+              transition: background 0s;
+            }
+
+            /* Button style */
+            h4 a {
+              cursor:pointer;
+              border:1px solid #fd9426;
+              font-size:16px;
+              padding:8px;
+              border-radius:10px;
+            color:rgb(255,128,33);
+
+            }
+            .sec {
+              border:1px solid #000;
+              border-radius:4px;
+              padding:8px;
+              margin:10px 40px;
+              font-size:18px;
+            }
+            .sec:hover{
+              transition:0.9s;
+              background:#ff8a80;
+              border:none;
+              color:#fff;
+            }
+
+
+            h4 a{
+             display:inline;
+             cursor:pointer;
+             border:1px solid #fd9426;
+             font-size:14px;
+             padding:8px 16px;
+             border-radius:10px;
+             color:rgb(255,128,33);
+
+           }
+           h4 a:hover{
+           display:inline;
+           background:rgb(255,128,33);
+           color:#fff;
+           }
+
+           .row{
+             display:flex;
+             justify-content:center;
+           }
+
+
+{% endblock %}
+{% block heading %}
+<h4 class="">
+  <a style=" " class="send-notice " href="{% url 'staff_view:create-notice'  %}"> Create Notice</a>
+</h4>
+{% endblock %}
+
+
+{% block nav-link %}
+<li><a style="font-size:18px;" href="{% url 'staff_view:staff-home' %}"> Home</a></li>
+<hr>
+<li class="colorlib-active"  ><a style="font-size:18px;" href="{% url 'staff_view:notice-staff' %}"> All Notice</a></li>
+<hr>
+<li><a style="font-size:18px;" href="{% url 'staff_view:request-staff' %}"> All Request</a></li>
+<hr>
+<li  ><a style="font-size:18px;" href="{% url 'staff_view:attendance' %}"> Attendance</a></li>
+<hr>
+<li ><a style="font-size:18px;" href="{% url 'student_signup' %}">Add Student</a><li>
+  <hr>
+<li><a style="font-size:18px;" href="{% url 'student_view:search-student' %}"> Search Student</a></li>
+<hr>
+
+<li ><a style="color:#fd9426;" id='logout' href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> logout</a></li>
+{% endblock %}
+{% block profile%}
+      <a class=" " href="{% url 'staff_view:staff-profile'  %}">
+              <ion-icon name="contact"></ion-icon>
+      </a>
+      <a class="staff-notification" data-id="{% url 'staff_view:staff-notification'  %}">
+              <ion-icon name="notifications"></ion-icon>
+      </a>
+       <a class="staff-message " data-id="{% url 'staff_view:staff-message'  %}">
+              <ion-icon name="navigate"></ion-icon>
+      </a>
+{% endblock %}
+{% block body %}
+<div class="main">
+    {% include "_modal-1.html" %}
+   <h4 style="text-align:center;">All Notices</h4>
+     <div class="container-fluid  ">
+       <div class="row">
+            <div   class="sec  col-md-5 text-center">
+             <a style="color:#ff8a80;" href="{% url 'staff_view:notice-staff' %}">Recieved Notices</a>
+            </div>
+            <div style="border:none;background:#ff8a80;color:#fff;" class="sec col-md-5 text-center">
+             <a   style="color:#fff;" href="{% url 'staff_view:notice-staff2' %}"">Sent Notices</a>
+            </div>
+             {% if noticee %}
+               {% for data in noticee %}
+               <a style="cursor:pointer;" data-id="{% url 'admin_view:admin_read_notice' data.pk %}" type="button"  class=" mt-3 list-group-item list-group-item-action send-notice">
+               <strong>{{data.users | capfirst}}</strong><span style="color:green; font-size:10px;padding:10px; line-height:10px;">student</span>
+                <span></span>
+               {{data.name | truncatechars:30}} <span></span>
+               <span style="color:rgb(255,128,33);">{{data.issue_date}}</span>
+               </a>
+              {% endfor %}
+           {% else %}
+           <tr>
+             <a style="cursor:pointer;"  type="button"  class=" mt-3 list-group-item list-group-item-action send-notice">
+                <h5 style="text-align:center;">No Notice</h5>
+             </a>
+           </tr>
+           {% endif %}
+
+      </div>
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block extrascripts %}
+<script type="text/javascript">
+  $(function () {
+    $(".staff-message").each(function () {
+      $(this).modalForm({formURL: $(this).data('id')});
+    });
+
+    $(".staff-notification").each(function () {
+      $(this).modalForm({formURL: $(this).data('id')});
+    });
+
+    $(".staff-profile").each(function () {
+      $(this).modalForm({formURL: $(this).data('id')});
+    });
+
+    // Update book buttons
+    $(".send-notice").each(function () {
+      $(this).modalForm({formURL: $(this).data('id')});
+    });
+
+    // Read book buttons
+    $(".update-student").each(function () {
+      $(this).modalForm({formURL: $(this).data('id')});
+    });
+
+    // Delete book buttons
+    $(".delete-student").each(function () {
+      $(this).modalForm({formURL: $(this).data('id')});
+    })
+
+    // // Hide message
+    // $(".alert").fadeTo(2000, 700).slideUp(700, function(){
+    //   $(".alert").slideUp(2000);
+    // });
+
+  });
+</script>
+{% endblock extrascripts %}

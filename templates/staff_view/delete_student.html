@@ -1,0 +1,22 @@
+{% load widget_tweaks %}
+
+<form method="post" action="">
+  {% csrf_token %}
+
+  <div style="background:#fc3d39;" class="modal-header d-flex justify-content-center">
+    <h3 style="color:#fff"; class="modal-title">Are you sure ?</h3>
+    <!--button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button-->
+  </div>
+
+  <div class="modal-body">
+  <p style="color:#fc3d39; text-align:center; font-size:30px;" > <i class="fa fa-times fa-4x animated rotateIn"></i></p>
+  </div>
+
+  <div class="modal-footer flex-center">
+    <a data-dismiss="modal" style=" cursor:pointer; border-radius:10px;color:#fc3d39; background:none; border:none;"">Cancel</a>
+    <button style="border-radius:10px; background:#fc3d39; border:none;"; type="submit" class="delete-btn btn btn-danger waves-effect">Delete</button>
+  </div>
+
+</form>
